@@ -10,7 +10,7 @@ gceSets:
 
   profiles:
     manager:
-      terraformVmModule: "git::https://github.com/its-software-services-devops/tf-module-gcp-vm.git//modules?ref=1.0.8"
+      terraformVmModule: "git::https://github.com/its-software-services-devops/tf-module-gcp-vm.git//modules?ref=1.0.9"
       bootDiskImage: "projects/centos-cloud/global/images/centos-7-v20200910"
       bootDiskSize: 100
       computeType: "e2-small"    
@@ -25,3 +25,4 @@ gceSets:
       externalDisks: []
       serviceAccount: "devops-cicd@its-artifact-commons.iam.gserviceaccount.com"
       enableNatIP: true
+      remoteExecByNatIP: true

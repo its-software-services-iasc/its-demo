@@ -27,8 +27,8 @@ gceRke:
       role: '["worker"]'
   profiles:
     master:
-      terraformVmModule: "git::https://github.com/its-software-services-devops/tf-module-gcp-vm.git//modules?ref=1.0.8"
-      bootDiskImage: "projects/centos-cloud/global/images/centos-7-v20200910" 
+      terraformVmModule: "git::https://github.com/its-software-services-devops/tf-module-gcp-vm.git//modules?ref=1.0.9"
+      bootDiskImage: "projects/centos-cloud/global/images/centos-7-v20200910" #"projects/cos-cloud/global/images/cos-77-12371-1109-0" 
       bootDiskSize: 100
       computeType: "e2-small"    
       localPublicKeyFile: "id_rsa.pub"
@@ -36,15 +36,17 @@ gceRke:
       deletionProtection: false
       sshUser: "cicd"
       localProvisionerFile: "scripts/provisioner.bash"
+      localStartupScript: "scripts/startup.bash"
       remoteProvisionerPath: "/home/cicd"
       tags: '["k8s-master"]'
       externalDisks: []
       serviceAccount: "devops-cicd@its-artifact-commons.iam.gserviceaccount.com"
-      enableNatIP: false
+      enableNatIP: true
+      remoteExecByNatIP: true
 
     worker:
-      terraformVmModule: "git::https://github.com/its-software-services-devops/tf-module-gcp-vm.git//modules?ref=1.0.8"
-      bootDiskImage: "projects/centos-cloud/global/images/centos-7-v20200910"
+      terraformVmModule: "git::https://github.com/its-software-services-devops/tf-module-gcp-vm.git//modules?ref=1.0.9"
+      bootDiskImage: "projects/centos-cloud/global/images/centos-7-v20200910" #"projects/cos-cloud/global/images/cos-77-12371-1109-0" 
       bootDiskSize: 100
       computeType: "e2-small"    
       localPublicKeyFile: "id_rsa.pub"
@@ -52,8 +54,10 @@ gceRke:
       deletionProtection: false
       sshUser: "cicd"
       localProvisionerFile: "scripts/provisioner.bash"
+      localStartupScript: "scripts/startup.bash"
       remoteProvisionerPath: "/home/cicd"
       tags: '["k8s-worker"]'
       externalDisks: []
       serviceAccount: "devops-cicd@its-artifact-commons.iam.gserviceaccount.com"
-      enableNatIP: false
+      enableNatIP: true
+      remoteExecByNatIP: true

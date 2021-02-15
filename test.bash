@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHART_VERSION=1.1.5-rc3
+CHART_VERSION=1.1.5-rc7
 CHART_URL=https://its-software-services-devops.github.io/helm-terraform-gcp/
 
 helm repo add helm-terraform-gcp-local ${CHART_URL}
