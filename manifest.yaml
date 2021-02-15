@@ -1,4 +1,6 @@
 chartUrl: https://its-software-services-devops.github.io/helm-terraform-gcp/
-chartVersion: 1.1.2
+chartVersion: 1.1.5-rc3
 infraIasc:
-  - iasc-its-demo.yaml
+  - iasc-its-global.yaml
+  - iasc-its-gce-manager.yaml
+  - iasc-its-gce-rke.yaml
